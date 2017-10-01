@@ -1,7 +1,12 @@
 body{
     margin: 0;
     padding: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #a9a9a9;
 }
 canvas{
-    background-color: #000000;
+    background-color: #ffffff;
 }
