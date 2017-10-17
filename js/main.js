@@ -9,20 +9,22 @@ function renderGuy() {
 
 }
 
+
 function moveGuy() {
-    body.addEventListener("keypress", function(event){
-        switch ( event.keyCode ) {
-            case 37: //w lewo
+    body.addEventListener("keypress", function(event) {
+        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+        switch (key) {
+            case 97: //w lewo
                 var left = document.getElementById('guy').offsetLeft;
-                if ( left === 0 ) {
+                if (left <= 0) {
                     break;
                 }
                 guy.style.left = left - 10 + 'px';
                 break;
-            case 39: //w prawo
+            case 100: //w prawo
                 var resolutionWidth = window.innerWidth;
                 var left = document.getElementById('guy').offsetLeft;
-                if ( left >= resolutionWidth - 60 ) {
+                if (left >= resolutionWidth - 60) {
                     break;
                 }
                 guy.style.left = left + 10 + 'px';
