@@ -28,9 +28,7 @@ function lifesRemove() {
 }
 
 function initGuy() {
-    var guyTag = document.createElement('div');
-    guyTag.id = 'guy';
-    document.body.appendChild(guyTag);
+    var guyTag = document.getElementById('guy');
     positionGuy = guyTag.offsetLeft;
 
     document.body.addEventListener('keydown', function (event) {
