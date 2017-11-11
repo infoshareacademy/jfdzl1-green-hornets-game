@@ -1,4 +1,8 @@
 #motherinlaw {
-    width: 69px;
-    height: 172px;
+    width: 70px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

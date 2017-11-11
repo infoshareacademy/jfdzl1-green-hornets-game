@@ -71,26 +71,50 @@
         }
     }
 
-    document.onkeydown = function (e) {
-        switch (e.keyCode) {
-            case 37:
-                moveLeft();
-                break;
-            case 39:
-                moveRight();
-                break;
-        }
-    };
-    document.onkeyup = function () {
-        moveNone();
-    };
+    function initGuy() {
+        var guyTag = document.getElementById('guy');
+        positionGuy = guyTag.offsetLeft;
+
+        document.body.addEventListener('keydown', function(event) {
+            var left = guyTag.offsetLeft;
+            switch (event.key) {
+                case 'ArrowLeft':
+                    if (left > 20) {
+                        guyTag.style.left = left - 30 + 'px';
+                        moveLeft();
+                        positionGuy = guyTag.offsetLeft;
+                    } else {
+                        moveNone();
+                    }
+
+                    break;
+                case 'ArrowRight':
+                    if (left < window.innerWidth - 100) {
+                        guyTag.style.left = left + 30 + 'px';
+                        moveRight();
+                        positionGuy = guyTag.offsetLeft;
+                    } else {
+                        moveNone();
+                    }
+                    break;
+                default:
+                    return;
+            }
+            event.preventDefault();
+        });
+        document.body.addEventListener('keyup', function(event) {
+            moveNone();
+        });
+    }
+
+    initGuy();
 
     function drawImage() {
         updateFrame();
         ctx.drawImage(character, scrX, scrY, width, height, x, y, width, height);
     }
 
-    setInterval(function () {
+    setInterval(function() {
         drawImage();
     }, 60);
 

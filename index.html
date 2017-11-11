@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
@@ -8,20 +9,35 @@
     <link rel="stylesheet" href="./css/motherinlaw.css">
     <title>Game</title>
 </head>
+
 <body>
-<div>Score: <span id="score">0</span></div>
-<div>Lifes: <span id="lifes">5</span></div>
-<div id="window_1"></div>
-<div id="window_2"></div>
-<div id="window_3"></div>
-<div id="window_4"></div>
-<div id="window_5"></div>
-<div id="guy"><canvas id="canvas"></canvas></div>
-<div id="motherinlaw"><canvas id="canvasM"></canvas></div>
-<script src="./js/main.js"></script>
-<script src="./js/player.js"></script>
-<script src="./js/mother-in-law.js"></script>
-<button onClick="moveLeft()">left</button>
-<button onClick="moveRight()">Right</button>
+    <div class="test"></div>
+    <div class="bg1">
+        <div class="bg2">
+            <div>Score: <span id="score">0</span></div>
+            <div>Lifes: <span id="lifes">5</span></div>
+            <div class="window_open" id="positionOfWindow_1">
+                <div id="window_1">
+                    <div id="motherinlaw"><canvas id="canvasM"></canvas></div>
+                </div>
+            </div>
+            <div class="window_open" id="positionOfWindow_2">
+                <div id="window_2"></div>
+            </div>
+            <div class="window_open" id="positionOfWindow_3">
+                <div id="window_3"></div>
+            </div>
+            <div class="window_open" id="positionOfWindow_4">
+                <div id="window_4"></div>
+            </div>
+            <div class="window_open" id="positionOfWindow_5">
+                <div id="window_5"></div>
+            </div>
+            <div id="guy"><canvas id="canvas"></canvas></div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/player.js"></script>
 </body>
+
 </html>

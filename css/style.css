@@ -2,73 +2,75 @@
     overflow: hidden;
     box-sizing: border-box;
 }
+
 html, body {
     margin: 0;
     padding: 0;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
 }
-body{
-    background-image:url("../images/background.svg");
-    background-position-x: center;
+
+body {
+    background-color: #fff3de;
+}
+
+.bg1, .bg2 {
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+}
+
+.bg1 {
+    background-image: url("../images/background1.svg");
     background-position-y: bottom;
+    background-size: 70%;
+}
+
+.bg2 {
+    background-image: url("../images/background2.svg");
+    background-position-y: top;
+    background-size: 22vw;
+}
+
+.window_open {
+    position: absolute;
+    top: 3.6vw;
+    transform: translate(-50%, 0);
+    width: 15%;
+    max-width: 180px;
+    height: calc(15vw * 1.485);
+    max-height: 267px;
+    background-image: url("../images/open_window.svg");
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
 }
 
-#window_1, #window_2, #window_3, #window_4 {
-    background-image: url("../images/open_window.svg");
-}
-
-#window_1 {
-    position: absolute;
-    top: 20px;
+#positionOfWindow_1 {
     left: 10%;
-    transform: translate(-50%,0);
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
 }
 
-#window_2 {
-    position: absolute;
-    top: 20px;
+#positionOfWindow_2 {
     left: 30%;
-    transform: translate(-50%,0);
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
 }
 
-#window_3 {
-    position: absolute;
-    top: 20px;
+#positionOfWindow_3 {
     left: 50%;
-    transform: translate(-50%,0);
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
 }
 
-#window_4 {
-    position: absolute;
-    top: 20px;
+#positionOfWindow_4 {
     left: 70%;
-    transform: translate(-50%,0);
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
 }
 
-#window_5 {
-    position: absolute;
-    top: 20px;
+#positionOfWindow_5 {
     left: 90%;
-    transform: translate(-50%,0);
-    width: 100px;
-    height: 100px;
+}
+
+#window_1, #window_2, #window_3, #window_4, #window_5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56%;
+    height: 54%;
     border: 2px solid black;
 }

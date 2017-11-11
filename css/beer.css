@@ -1,7 +1,23 @@
 .beer {
     position: absolute;
-    top: 110px;
+    top: calc(3.6vw + 7.5vw * 1.485 + 0.56 * 7.5vw * 1.485);
     background-image: url("../images/beer_bottle2.png");
     width: 15px;
     height: 58px;
+}
+.test {
+    position: absolute;
+    top: calc(3.6vw - 2vw + 7.5vw * 1.485 + 0.56 * 7.5vw * 1.485);
+    background-image: url("../images/beer_bottle2.png");
+    width: 15px;
+    height: 58px;
+    left: 93px;
+    z-index: 100;
+}
+
+
+@media (min-width: 1200px) {
+    .test {
+    top: calc(3.6vw + 185px);
+    }
 }
