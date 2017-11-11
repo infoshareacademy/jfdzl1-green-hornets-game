@@ -1,7 +1,7 @@
 .beer {
     position: absolute;
     top: 110px;
-    background-color: brown;
-    width: 26px;
-    height: 50px;
+    background-image: url("../images/beer_bottle2.png");
+    width: 15px;
+    height: 58px;
 }
