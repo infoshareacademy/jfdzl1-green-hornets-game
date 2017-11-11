@@ -19,6 +19,10 @@ body{
     background-size: cover;
 }
 
+#window_1, #window_2, #window_3, #window_4 {
+    background-image: url("../images/open_window.svg");
+}
+
 #window_1 {
     position: absolute;
     top: 20px;
