@@ -36,6 +36,9 @@ body{
     transform: translate(-30%,-20%);
     z-index: 34;
 }
+.play:hover{
+    background-image:url("../images/PLAY_CLICK.png");
+}
 .instruction{
     background-image:url("../images/INSTRUCTIONS.png");
     height: 103px;
@@ -45,4 +48,7 @@ body{
     left: 70%;
     transform: translate(-30%,-20%);
     z-index: 34;
+}
+.instruction:hover{
+    background-image:url("../images/INSTRUCTIONS_CLICK.png");
 }
