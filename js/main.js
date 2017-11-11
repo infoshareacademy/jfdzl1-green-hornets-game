@@ -1,58 +1,110 @@
-function initGuy() {
-    var guyTag = document.createElement('div');
-    guyTag.id = 'guy';
-    document.body.appendChild(guyTag);
+var element = document.createElement('div');
+var beerTag = document.createElement('div');
+var body = document.getElementsByTagName('body')[0];
+var guy = 0;
+var beer = 0;
+var speed = 20;
 
-    document.body.addEventListener('keydown', function (event) {
-        var left = guyTag.offsetLeft;
-        switch (event.key) {
-            case 'ArrowLeft':
-                if (left > 0)
-                    guyTag.style.left = left - 10 + 'px';
+function renderGuy() {
+    element.id = 'guy';
+    body.appendChild(element);
+    guy = document.getElementById('guy');
+}
+
+function renderBeers() {
+    body.appendChild(beerTag);
+    beerTag.id = 'beer';
+    beer = document.getElementById('beer');
+
+    var widthOfBrowser = window.innerWidth;
+    var beerWidth = beer.offsetWidth;
+    var chooseOfWindow = Math.floor(0 + (Math.random() * (window.innerWidth - (beerWidth / 2))));
+
+    if (chooseOfWindow >= 0 & chooseOfWindow <= (widthOfBrowser * 0.2)) {
+        var widthOfWinndow = window_1.offsetWidth;
+        var min = window_1.offsetLeft - (widthOfWinndow / 2) + (beerWidth / 2);
+        var max = window_1.offsetLeft + (widthOfWinndow / 2) - (beerWidth / 2);
+        var win = document.getElementById('window_1')
+        var throwOut = Math.floor(min + (Math.random() * (max - min)));
+        beer.style.left = throwOut + 'px';
+        console.log('1');
+    } else if (chooseOfWindow >= (widthOfBrowser * 0.2) + 1 & chooseOfWindow <= widthOfBrowser * 0.4) {
+        var widthOfWinndow = window_2.offsetWidth;
+        var min = window_2.offsetLeft - (widthOfWinndow / 2) + (beerWidth / 2);
+        var max = window_2.offsetLeft + (widthOfWinndow / 2) - (beerWidth / 2);
+        var win = document.getElementById('window_1')
+        var throwOut = Math.floor(min + (Math.random() * (max - min)));
+        beer.style.left = throwOut + 'px';
+        console.log('2');
+    } else if (chooseOfWindow >= (widthOfBrowser * 0.4) + 1 & chooseOfWindow <= widthOfBrowser * 0.6) {
+        var widthOfWinndow = window_3.offsetWidth;
+        var min = window_3.offsetLeft - (widthOfWinndow / 2) + (beerWidth / 2);
+        var max = window_3.offsetLeft + (widthOfWinndow / 2) - (beerWidth / 2);
+        var win = document.getElementById('window_1')
+        var throwOut = Math.floor(min + (Math.random() * (max - min)));
+        beer.style.left = throwOut + 'px';
+        console.log('3');
+    } else if (chooseOfWindow >= (widthOfBrowser * 0.6) + 1 & chooseOfWindow <= widthOfBrowser * 0.8) {
+        var widthOfWinndow = window_4.offsetWidth;
+        var min = window_4.offsetLeft - (widthOfWinndow / 2) + (beerWidth / 2);
+        var max = window_4.offsetLeft + (widthOfWinndow / 2) - (beerWidth / 2);
+        var win = document.getElementById('window_1')
+        var throwOut = Math.floor(min + (Math.random() * (max - min)));
+        beer.style.left = throwOut + 'px';
+        console.log('4');
+    } else if (chooseOfWindow >= (widthOfBrowser * 0.8) + 1 & chooseOfWindow <= widthOfBrowser) {
+        var widthOfWinndow = window_5.offsetWidth;
+        var min = window_5.offsetLeft - (widthOfWinndow / 2) + (beerWidth / 2);
+        var max = window_5.offsetLeft + (widthOfWinndow / 2) - (beerWidth / 2);
+        var win = document.getElementById('window_1')
+        var throwOut = Math.floor(min + (Math.random() * (max - min)));
+        beer.style.left = throwOut + 'px';
+        console.log('5');
+    }
+}
+
+function moveGuy() {
+    body.addEventListener("keypress", function(event) {
+        var key = event.charCode ? event.charCode : event.keyCode ? event.keyCode : 0;
+        switch (key) {
+            case 97: //w lewo
+                var left = document.getElementById('guy').offsetLeft;
+                if (left <= 0) {
+                    break;
+                }
+                guy.style.left = left - 10 + 'px';
                 break;
-            case 'ArrowRight':
-                if (left < window.innerWidth - 60)
-                    guyTag.style.left = left + 10 + 'px';
+            case 100: //w prawo
+                var resolutionWidth = window.innerWidth;
+                var left = document.getElementById('guy').offsetLeft;
+                if (left >= resolutionWidth - 60) {
+                    break;
+                }
+                guy.style.left = left + 10 + 'px';
                 break;
+
             default:
-                return;
+                // empty
         }
-        event.preventDefault();
     });
 }
 
-function initBeer(speed) {
-    speed = speed || 20;
+function fallingBeers() {
+    var position = document.getElementById('beer').offsetTop;
+    var resolutionHeight = window.innerHeight;
+    var inter = setInterval(frame, speed);
 
-    var beerTag = document.createElement('div');
-    beerTag.className = 'beer';    
-    document.body.appendChild(beerTag);
-
-    var beerWidth = beerTag.offsetWidth;
-    var choosenWindowNumber = Math.floor(Math.random() * 5) + 1; // from 1 to 5
-
-    var choosenWindow = document.getElementById('window_' + choosenWindowNumber);
-    var widthOfWinndow = choosenWindow.offsetWidth;
-    var offsetLeftOfWinndow = choosenWindow.offsetLeft;
-    var min = offsetLeftOfWinndow - (widthOfWinndow / 2) + (beerWidth / 2);
-    var max = offsetLeftOfWinndow + (widthOfWinndow / 2) - (beerWidth / 2);
-    var throwOutPoint = Math.floor(min + (Math.random() * (max - min)));
-    beerTag.style.left = throwOutPoint + 'px';
-
-    animateBeer(beerTag, speed);
-}
-
-function animateBeer(beerTag, speed) {
-    var position = beerTag.offsetTop;
-    var inter = setInterval(function () {
-        if (position >= window.innerHeight) {
+    function frame() {
+        if (position >= resolutionHeight) {
             clearInterval(inter);
         } else {
-            beerTag.style.top = (position += 3) + 'px';
+            position += 3;
+            beer.style.top = position + 'px';
         }
-    }, speed);
+    }
 }
 
-setInterval(initBeer, 500);
-
-initGuy();
+renderBeers();
+fallingBeers();
+renderGuy();
+moveGuy();
