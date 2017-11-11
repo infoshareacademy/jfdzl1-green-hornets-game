@@ -68,3 +68,9 @@ body{
     height: 100px;
     border: 2px solid black;
 }
+.okna{
+    z-index: 1;
+}
+.asd{
+    z-index: 2;
+}

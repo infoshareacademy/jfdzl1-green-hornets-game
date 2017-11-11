@@ -50,7 +50,7 @@ body{
     top: 85%;
     left: 70%;
     transform: translate(-30%,-20%);
-    z-index: 34;
+    /*z-index: 34;*/
 }
 .instruction:hover{
     background-image:url("../images/INSTRUCTIONS_CLICK.png");
