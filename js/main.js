@@ -1,7 +1,7 @@
 var positionGuy;
 
 function collision(positionToCollision) {
-    if ((positionToCollision < positionGuy + 50) && (positionToCollision > positionGuy - 26)) {
+    if ((positionToCollision < positionGuy + 80) && (positionToCollision > positionGuy - 41)) {
         scoreAdd();
     } else {
         lifesRemove();

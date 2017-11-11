@@ -2,6 +2,22 @@
     overflow: hidden;
     box-sizing: border-box;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+body{
+    background-image:url("../images/background.svg");
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 #window_1 {
     position: absolute;
