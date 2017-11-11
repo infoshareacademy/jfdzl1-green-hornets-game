@@ -27,8 +27,6 @@ function lifesRemove() {
     }, 200)
 }
 
-
-
 function initBeer(speed) {
     setTimeout(function() {
         speed = speed || 20;
