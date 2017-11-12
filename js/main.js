@@ -1,13 +1,52 @@
 var positionGuy;
+var guyHeight;
+var throwOutPoint;
+var beerWidth;
+var beerHeight = guyHeight = document.getElementById('guy').offsetHeight;
+var beerTag;
 var choosenWindow_A;
+var indexBeer = -1;
+var indexCrashBeer = 0;
 
 function collision(positionToCollision) {
-    if ((positionToCollision < positionGuy + 80) && (positionToCollision > positionGuy - 41)) {
+    var guyWidth = document.getElementById('guy').offsetWidth;
+    if ((positionToCollision < positionGuy + guyWidth) && (positionToCollision > positionGuy - beerWidth)) {
         scoreAdd();
+        document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
+        indexBeer--;
     } else {
         lifesRemove();
+        document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
+        crashBeerDisplay();
+        indexBeer--;
     }
 }
+
+function crashBeerDisplay() {
+    indexCrashBeer++;
+    var crashBeer = document.createElement('div');
+    crashBeer.className = 'crashBeer';
+    crashBeer.id = 'crashBeer_' + indexCrashBeer;
+    crashBeer.style.left = throwOutPoint + 'px';
+    crashBeer.style.top = window.innerHeight - guyHeight + beerHeight + 'px';
+    document.body.appendChild(crashBeer);
+    document.getElementById('crashBeer_' + indexCrashBeer).style.opacity = 1;
+    smoothlyHide();
+}
+
+function smoothlyHide() {
+    var crashBeer = document.getElementById('crashBeer_' + indexCrashBeer);
+    var opacity = crashBeer.style.opacity * 100;
+    var intervalShow = setInterval(function() {
+        if (opacity === 0) {
+            clearInterval(intervalShow);
+            crashBeer.outerHTML = '';
+        } else {
+            opacity -= 1;
+            crashBeer.style.opacity = opacity / 100;
+        };
+    }, 150);
+};
 
 function scoreAdd() {
     var scoreTag = document.getElementById('score');
@@ -38,13 +77,15 @@ function initBeer(speed) {
     choosenWindow_A.innerHTML = '<div id="motherinlaw"><canvas id="canvasM"></canvas></div>';
 
     setTimeout(function() {
-        var beerTag = document.createElement('div');
+        indexBeer++;
+        beerTag = document.createElement('div');
         beerTag.className = 'beer';
         document.body.appendChild(beerTag);
-        var beerWidth = beerTag.offsetWidth;
+        beerWidth = beerTag.offsetWidth;
+        beerHeight = document.getElementsByClassName('beer')[0].offsetHeight;
         var offsetLeftOfWinndow = choosenWindow_B.offsetLeft + beerWidth;
-        var throwOutPoint = offsetLeftOfWinndow;
-        var positionToCollision = throwOutPoint;
+        throwOutPoint = offsetLeftOfWinndow;
+        var positionToCollision = throwOutPoint - beerWidth;
 
         animateBeer(beerTag, speed, positionToCollision);
         beerTag.style.left = throwOutPoint + 'px';
@@ -56,7 +97,7 @@ function initBeer(speed) {
 function animateBeer(beerTag, speed, positionToCollision) {
     var position = beerTag.offsetTop;
     var inter = setInterval(function() {
-        if (position >= window.innerHeight) {
+        if (position >= window.innerHeight - guyHeight) {
             clearInterval(inter);
             collision(positionToCollision);
             choosenWindow_A.innerHTML = '';
@@ -92,11 +133,12 @@ function drawMotherInLaw() {
     M_mother.src = "./images/brandma_attack.png";
 
     var M_currentFrame = 0;
-    var M_canvasM = document.getElementById('canvasM');
+    var canvasM = document.getElementById('canvasM');
     canvasM.width = M_canWidth;
     canvasM.height = M_canHeight;
 
     var M_ctx = canvasM.getContext('2d');
+
 
 
     function updateFrame() {

@@ -12,6 +12,7 @@ html, body {
 
 body {
     background-color: #fff3de;
+    z-index: -99;
 }
 
 .bg1, .bg2 {
@@ -24,12 +25,14 @@ body {
     background-image: url("../images/background1.svg");
     background-position-y: bottom;
     background-size: 70%;
+    z-index: -98;
 }
 
 .bg2 {
     background-image: url("../images/background2.svg");
     background-position-y: top;
     background-size: 22vw;
+    z-index: -97;
 }
 
 .window_open {
@@ -72,5 +75,4 @@ body {
     transform: translate(-50%, -50%);
     width: 56%;
     height: 54%;
-    border: 2px solid black;
 }
