@@ -1,4 +1,5 @@
 var positionGuy;
+var choosenWindow_A;
 
 function collision(positionToCollision) {
     if ((positionToCollision < positionGuy + 80) && (positionToCollision > positionGuy - 41)) {
@@ -28,27 +29,28 @@ function lifesRemove() {
 }
 
 function initBeer(speed) {
+    speed = speed || 20;
+
+    var choosenWindowNumber = Math.floor(Math.random() * 5) + 1; // from 1 to 5
+    var choosenWindow_B = document.getElementById('positionOfWindow_' + choosenWindowNumber);
+
+    choosenWindow_A = document.getElementById('window_' + choosenWindowNumber);
+    choosenWindow_A.innerHTML = '<div id="motherinlaw"><canvas id="canvasM"></canvas></div>';
+
     setTimeout(function() {
-        speed = speed || 20;
         var beerTag = document.createElement('div');
         beerTag.className = 'beer';
         document.body.appendChild(beerTag);
-
         var beerWidth = beerTag.offsetWidth;
-        var choosenWindowNumber = Math.floor(Math.random() * 5) + 1; // from 1 to 5
-        var choosenWindow = document.getElementById('window_' + choosenWindowNumber);
-        var widthOfWinndow = choosenWindow.offsetWidth;
-        var offsetLeftOfWinndow = choosenWindow.offsetLeft;
-        var min = offsetLeftOfWinndow - (widthOfWinndow / 2) + (beerWidth / 2);
-        var max = offsetLeftOfWinndow + (widthOfWinndow / 2) - (beerWidth / 2);
-        var throwOutPoint = Math.floor(min + (Math.random() * (max - min)));
+        var offsetLeftOfWinndow = choosenWindow_B.offsetLeft + beerWidth;
+        var throwOutPoint = offsetLeftOfWinndow;
         var positionToCollision = throwOutPoint;
 
         animateBeer(beerTag, speed, positionToCollision);
         beerTag.style.left = throwOutPoint + 'px';
     }, 1000);
 
-        setTimeout(drawMotherInLaw,500);
+    setTimeout(drawMotherInLaw, 500);
 }
 
 function animateBeer(beerTag, speed, positionToCollision) {
@@ -57,6 +59,7 @@ function animateBeer(beerTag, speed, positionToCollision) {
         if (position >= window.innerHeight) {
             clearInterval(inter);
             collision(positionToCollision);
+            choosenWindow_A.innerHTML = '';
         } else {
             beerTag.style.top = (position += 5) + 'px';
         }

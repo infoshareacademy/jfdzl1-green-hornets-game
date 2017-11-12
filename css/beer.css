@@ -5,9 +5,7 @@
     width: 15px;
     height: 58px;
     left: 93px;
-    z-index: 100;
 }
-
 
 @media (min-width: 1200px) {
     .beer {
