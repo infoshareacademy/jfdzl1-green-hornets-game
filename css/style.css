@@ -69,8 +69,10 @@ body{
     border: 2px solid black;
 }
 .okna{
-    z-index: 1;
+    z-index: -1;
+    /*visibility: hidden;*/
 }
 .asd{
     z-index: 2;
+    visibility: visible;
 }
