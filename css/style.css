@@ -10,6 +10,7 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: 'Bangers', cursive;
+    font-size: 25px;
 }
 
 body {
@@ -86,23 +87,31 @@ body {
     z-index: -95;
 }
 
-.lifescore {
+.score {
+    width: 100px;
+    margin-left: 25px;
     float: left;
-    width: 60px;
+}
+
+.life {
+    background-image: url("../images/heart_2.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 21px;
 }
 
 .heart {
-    background-image: url("../images/heart_2.png");
-    width: 15px;
-    height: 13px;
+    width: 21px;
+    height: 23px;
     float: left;
 }
 
 .levels {
     float: right;
+    width: 100px;
 }
 
-.lives {
+.lifes {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -115,6 +124,12 @@ body {
     width: 100%;
     height: 30px;
     padding: 5px;
+}
+
+.title_in_topbar {
+    width: 55px;
+    height: 25px;
+    float: left;
 }
 
 @media (max-width: 680px) {

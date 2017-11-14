@@ -8,12 +8,14 @@ var choosenWindow_A;
 var indexBeer = -1;
 var indexCrashBeer = 0;
 var startPage = true;
+var lifes;
 
 if (startPage) {
     var startDisplay = document.getElementById('start_page');
     var guy = document.getElementById('guy');
     var play = document.getElementById('play');
     // var instruction = getElementById('instruction');
+    lifes = 5;
     play.onclick = function() {
         if (window.innerWidth >= 680) {
             startDisplay.style.display = 'none';
@@ -78,15 +80,16 @@ function scoreAdd() {
 };
 
 function lifesRemove() {
-    var lifesTag = document.getElementById('lifes');
-    var lifes = parseInt(lifesTag.innerText);
+    var lifesTag = document.getElementById('lifes_' + lifes);
+    lifesTag.classList.remove('life');
     lifes -= 1;
-    lifesTag.innerText = lifes;
-    window.setTimeout(function() {
-        if (lifes === 0) {
-            alert("GAME OVER");
-        }
-    }, 200)
+    if (lifes === 0) {
+        window.setTimeout(function() {
+            if (lifes === 0) {
+                alert("GAME OVER");
+            }
+        }, 200)
+    }
 };
 
 function initBeer(speed) {
