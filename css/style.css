@@ -8,6 +8,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+        font-family: 'Bangers', cursive;
 }
 
 body {
@@ -77,4 +78,32 @@ body {
     width: 56%;
     height: 54%;
     z-index: -95;
+}
+
+.lifescore{
+    float: left;
+    width: 60px;
+}
+.heart{
+    background-image: url("../images/heart_2.png");
+    width: 15px;
+    height: 13px;
+    float: left;
+}
+.levels{
+    float: right;
+}
+.lives{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.topbar{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+
 }
