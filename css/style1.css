@@ -21,17 +21,8 @@ body{
 
 
 }
-.button{
-    /*text-transform: uppercase;*/
-    /*z-index: 2;*/
-    /*color: #ffffff;*/
-    /*background-color: #007227;*/
-
-    /*float: left;*/
-    /*text-align: center;*/
-}
 .play{
-    background-image:url("../images/PLAY.png");
+    background-image:url("../images/PLAY_CLICK.png");
     width: 199px;
     height: 103px;
     position: absolute;
@@ -40,18 +31,17 @@ body{
     transform: translate(-30%,-20%);
 }
 .play:hover{
-    background-image:url("../images/PLAY_CLICK.png");
+    background-image:url("../images/PLAY.png");
 }
 .instruction{
-    background-image:url("../images/INSTRUCTIONS.png");
+    background-image:url("../images/INSTRUCTIONS_CLICK.png");
     height: 103px;
     width: 199px;
     position: absolute;
     top: 85%;
-    left: 70%;
-    transform: translate(-30%,-20%);
-    /*z-index: 34;*/
+    left: 80%;
+    transform: translate(-70%,-20%);
 }
 .instruction:hover{
-    background-image:url("../images/INSTRUCTIONS_CLICK.png");
+    background-image:url("../images/INSTRUCTIONS.png");
 }
