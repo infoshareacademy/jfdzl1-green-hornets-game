@@ -9,6 +9,7 @@ var indexBeer = -1;
 var indexCrashBeer = 0;
 var startPage = true;
 var lifes;
+var startGame;
 
 if (startPage) {
     var startDisplay = document.getElementById('start_page');
@@ -29,7 +30,7 @@ if (startPage) {
 } else alert('Sorry, an unexpected error');
 
 function startGame() {
-    setInterval(initBeer, 4000);
+    startGame = setInterval(initBeer, 4000);
 };
 
 function collision(positionToCollision) {
@@ -87,6 +88,7 @@ function lifesRemove() {
         window.setTimeout(function() {
             if (lifes === 0) {
                 alert("GAME OVER");
+                clearInterval(startGame);
             }
         }, 200)
     }
