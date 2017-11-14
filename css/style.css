@@ -70,7 +70,7 @@ body{
 }
 .okna{
     z-index: -1;
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 .asd{
     z-index: 2;
