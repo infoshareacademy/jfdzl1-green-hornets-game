@@ -12,6 +12,8 @@ var lifes;
 var startGame;
 var score = 0;
 var level = 1;
+var speed = 4000;
+var pTc;
 
 if (startPage) {
     var startDisplay = document.getElementById('start_page');
@@ -32,21 +34,19 @@ if (startPage) {
 } else alert('Sorry, an unexpected error');
 
 function startGame() {
-    startGame = setInterval(initBeer, 4000);
+    startGame = setInterval(initBeer, speed);
 };
 
 function collision(positionToCollision) {
     var guyWidth = document.getElementById('guy').offsetWidth;
+    pTc = document.getElementsByClassName('beer')[0].offsetLeft;
     if ((positionToCollision < positionGuy + guyWidth) && (positionToCollision > positionGuy - beerWidth)) {
         scoreAdd();
-        document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
-        indexBeer--;
-
+        document.getElementsByClassName('beer')[0].outerHTML = '';
     } else {
         lifesRemove();
-        document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
+        document.getElementsByClassName('beer')[0].outerHTML = '';
         crashBeerDisplay();
-        indexBeer--;
     }
 };
 
@@ -55,7 +55,7 @@ function crashBeerDisplay() {
     var crashBeer = document.createElement('div');
     crashBeer.className = 'crashBeer';
     crashBeer.id = 'crashBeer_' + indexCrashBeer;
-    crashBeer.style.left = throwOutPoint - 32.5 + 'px';
+    crashBeer.style.left = pTc - 32.5 + 'px';
     crashBeer.style.top = window.innerHeight - guyHeight + beerHeight + 'px';
     document.body.appendChild(crashBeer);
     document.getElementById('crashBeer_' + indexCrashBeer).style.opacity = 1;
@@ -80,62 +80,72 @@ function scoreAdd() {
     var scoreTag = document.getElementById('score');
     score += 1;
     scoreTag.innerText = score;
-};
-
-function lifesRemove() {
-    var lifesTag = document.getElementById('lifes_' + lifes);
-    lifesTag.classList.remove('life');
-    lifes -= 1;
-    if (lifes === 0) {
-        window.setTimeout(function() {
-            if (lifes === 0) {
-                var stopDisplay = document.getElementById('stop_page');
-                stopDisplay.style.display = 'block';
-                clearInterval(startGame);
-            }
-        }, 200)
+    if (score % 10 === 0) {
+        level += 1;
+        var levelTag = document.getElementById('level');
+        levelTag.innerText = level;
+        speed = 4000 - level * 200;
+        clearInterval(startGame);
+        startGame = setInterval(initBeer, speed);
     }
 };
 
-function initBeer(speed) {
+function lifesRemove() {
+    if (lifes === 0) {
+        clearInterval(startGame);
+        var stopDisplay = document.getElementById('stop_page');
+        window.setTimeout(function() {
+            stopDisplay.style.display = 'block';
+        }, 200)
+    } else {
+        var lifesTag = document.getElementById('lifes_' + lifes);
+        lifesTag.classList.remove('life');
+        lifes -= 1;
+        if (lifes === 0) lifesRemove();
+    }
+};
+
+function initBeer() {
     guyHeight = document.getElementById('guy').offsetHeight;
-    speed = speed || 20;
 
     var choosenWindowNumber = Math.floor(Math.random() * 5) + 1; // from 1 to 5
     var choosenWindow_B = document.getElementById('positionOfWindow_' + choosenWindowNumber);
 
     choosenWindow_A = document.getElementById('window_' + choosenWindowNumber);
     choosenWindow_A.innerHTML = '<div id="motherinlaw"><canvas id="canvasM"></canvas></div>';
+    drawMotherInLaw();
 
     setTimeout(function() {
         indexBeer++;
         beerTag = document.createElement('div');
         beerTag.className = 'beer';
+        beerTag.id = "beer_" + indexBeer;
         document.body.appendChild(beerTag);
         beerWidth = beerTag.offsetWidth;
         beerHeight = document.getElementsByClassName('beer')[0].offsetHeight;
         var offsetLeftOfWinndow = choosenWindow_B.offsetLeft + beerWidth;
         throwOutPoint = offsetLeftOfWinndow;
         var positionToCollision = throwOutPoint - beerWidth;
-
-        animateBeer(beerTag, speed, positionToCollision);
+        animateBeer(beerTag, positionToCollision);
         beerTag.style.left = throwOutPoint + 'px';
-    }, 1000);
+        setTimeout(function() {
+            choosenWindow_A.innerHTML = '';
+        }, 200);
+    }, 600);
 
-    setTimeout(drawMotherInLaw, 500);
+
 };
 
-function animateBeer(beerTag, speed, positionToCollision) {
+function animateBeer(beerTag, positionToCollision) {
     var position = beerTag.offsetTop;
     var inter = setInterval(function() {
-        if (position >= window.innerHeight - guyHeight) {
+        if (position >= window.innerHeight - guyHeight || lifes === 0) {
             clearInterval(inter);
             collision(positionToCollision);
-            choosenWindow_A.innerHTML = '';
         } else {
             beerTag.style.top = (position += 5) + 'px';
         }
-    }, speed);
+    }, 20);
 };
 
 
