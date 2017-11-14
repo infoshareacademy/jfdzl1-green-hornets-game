@@ -18,7 +18,7 @@
 }
 
 .GO_container {
-    background-image: url("../images/game_over.png");
+    background-image: url("../images/game_over_tlo.png");
     background-color: #757575;
     background-repeat: no-repeat;
     width: 800px;
@@ -31,49 +31,49 @@
 }
 
 #play_again {
-    background-image: url("../images/PLAY_CLICK.png");
+    background-image: url("../images/play_again.png");
     width: 199px;
     height: 103px;
     position: absolute;
-    top: 85%;
+    top: 83%;
     left: 13%;
     transform: translate(-30%, -20%);
     z-index: 99;
 }
 
 #play_again:hover {
-    background-image: url("../images/PLAY.png");
+    background-image: url("../images/play_again_click.png");
     cursor: pointer;
 }
 
 #www {
-    background-image: url("../images/INSTRUCTIONS_CLICK.png");
+    background-image: url("../images/lubeer_www.png");
     height: 103px;
     width: 199px;
     position: absolute;
-    top: 85%;
+    top: 83%;
     left: 50%;
     transform: translate(-50%, -20%);
     z-index: 99;
 }
 
 #www:hover {
-    background-image: url("../images/INSTRUCTIONS.png");
+    background-image: url("../images/lubeer_www_click.png");
     cursor: pointer;
 }
 
 #app {
-    background-image: url("../images/INSTRUCTIONS_CLICK.png");
+    background-image: url("../images/lubeer_app.png");
     height: 103px;
     width: 199px;
     position: absolute;
-    top: 85%;
+    top: 83%;
     left: 87%;
     transform: translate(-70%, -20%);
     z-index: 99;
 }
 
 #app:hover {
-    background-image: url("../images/INSTRUCTIONS.png");
+    background-image: url("../images/lubeer_app_click.png");
     cursor: pointer;
 }
