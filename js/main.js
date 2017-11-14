@@ -45,7 +45,7 @@ function smoothlyHide() {
             opacity -= 1;
             crashBeer.style.opacity = opacity / 100;
         };
-    }, 150);
+    }, 15);
 };
 
 function scoreAdd() {
