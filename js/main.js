@@ -10,6 +10,8 @@ var indexCrashBeer = 0;
 var startPage = true;
 var lifes;
 var startGame;
+var score = 0;
+var level = 1;
 
 if (startPage) {
     var startDisplay = document.getElementById('start_page');
@@ -39,6 +41,7 @@ function collision(positionToCollision) {
         scoreAdd();
         document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
         indexBeer--;
+
     } else {
         lifesRemove();
         document.getElementsByClassName('beer')[indexBeer].outerHTML = '';
@@ -75,7 +78,6 @@ function smoothlyHide() {
 
 function scoreAdd() {
     var scoreTag = document.getElementById('score');
-    var score = parseInt(scoreTag.innerText);
     score += 1;
     scoreTag.innerText = score;
 };
@@ -87,7 +89,8 @@ function lifesRemove() {
     if (lifes === 0) {
         window.setTimeout(function() {
             if (lifes === 0) {
-                alert("GAME OVER");
+                var stopDisplay = document.getElementById('stop_page');
+                stopDisplay.style.display = 'block';
                 clearInterval(startGame);
             }
         }, 200)

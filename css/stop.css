@@ -1,0 +1,79 @@
+#stop_page {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #ffffff;
+    display: none;
+    z-index: 96;
+    width: 100%;
+    height: 100%;
+}
+
+.GO_wrapper {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 97;
+}
+
+.GO_container {
+    background-image: url("../images/game_over.png");
+    background-color: #757575;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 98;
+}
+
+#play_again {
+    background-image: url("../images/PLAY_CLICK.png");
+    width: 199px;
+    height: 103px;
+    position: absolute;
+    top: 85%;
+    left: 13%;
+    transform: translate(-30%, -20%);
+    z-index: 99;
+}
+
+#play_again:hover {
+    background-image: url("../images/PLAY.png");
+    cursor: pointer;
+}
+
+#www {
+    background-image: url("../images/INSTRUCTIONS_CLICK.png");
+    height: 103px;
+    width: 199px;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    z-index: 99;
+}
+
+#www:hover {
+    background-image: url("../images/INSTRUCTIONS.png");
+    cursor: pointer;
+}
+
+#app {
+    background-image: url("../images/INSTRUCTIONS_CLICK.png");
+    height: 103px;
+    width: 199px;
+    position: absolute;
+    top: 85%;
+    left: 87%;
+    transform: translate(-70%, -20%);
+    z-index: 99;
+}
+
+#app:hover {
+    background-image: url("../images/INSTRUCTIONS.png");
+    cursor: pointer;
+}
