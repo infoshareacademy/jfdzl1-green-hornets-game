@@ -10,8 +10,8 @@
 
 .crashBeer {
     background-image: url("../images/broken-beer.png");
-    width: 20px;
-    height: 20px;
+    width: 80px;
+    height: 24px;
     position: absolute;
     z-index: 1;
 }

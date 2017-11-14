@@ -22,14 +22,14 @@ body {
 }
 
 .bg1 {
-    background-image: url("../images/background1.svg");
+    background-image: url("../images/background1.jpg");
     background-position-y: bottom;
     background-size: 70%;
     z-index: -98;
 }
 
 .bg2 {
-    background-image: url("../images/background2.svg");
+    background-image: url("../images/background3.jpg");
     background-position-y: top;
     background-size: 22vw;
     z-index: -97;

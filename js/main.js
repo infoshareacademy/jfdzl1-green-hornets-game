@@ -27,7 +27,7 @@ function crashBeerDisplay() {
     var crashBeer = document.createElement('div');
     crashBeer.className = 'crashBeer';
     crashBeer.id = 'crashBeer_' + indexCrashBeer;
-    crashBeer.style.left = throwOutPoint + 'px';
+    crashBeer.style.left = throwOutPoint - 32.5 + 'px';
     crashBeer.style.top = window.innerHeight - guyHeight + beerHeight + 'px';
     document.body.appendChild(crashBeer);
     document.getElementById('crashBeer_' + indexCrashBeer).style.opacity = 1;
