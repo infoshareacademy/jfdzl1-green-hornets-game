@@ -1,1 +1,78 @@
+* {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+body{
+    background-image:url("../images/background.svg");
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
+#window_1 {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    transform: translate(-50%,0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+#window_2 {
+    position: absolute;
+    top: 20px;
+    left: 30%;
+    transform: translate(-50%,0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+#window_3 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+#window_4 {
+    position: absolute;
+    top: 20px;
+    left: 70%;
+    transform: translate(-50%,0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+#window_5 {
+    position: absolute;
+    top: 20px;
+    left: 90%;
+    transform: translate(-50%,0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+.okna{
+    z-index: -1;
+    visibility: hidden;
+}
+.asd{
+    z-index: 2;
+    visibility: visible;
+}
