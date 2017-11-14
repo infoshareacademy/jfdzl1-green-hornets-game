@@ -15,12 +15,16 @@ if (startPage) {
     var play = document.getElementById('play');
     // var instruction = getElementById('instruction');
     play.onclick = function() {
-        startDisplay.style.display = 'none';
-        guy.style.display = 'block';
-        startPage = false;
-        startGame();
+        if (window.innerWidth >= 680) {
+            startDisplay.style.display = 'none';
+            guy.style.display = 'block';
+            startPage = false;
+            startGame();
+        } else {
+            alert('Sorry, the window of your browser is to small');
+        }
     }
-}
+} else alert('Sorry, an unexpected error');
 
 function startGame() {
     setInterval(initBeer, 4000);

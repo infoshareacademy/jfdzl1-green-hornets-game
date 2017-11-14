@@ -41,6 +41,7 @@
 
 #play:hover {
     background-image: url("../images/PLAY.png");
+    cursor: pointer;
 }
 
 #instruction {
@@ -56,4 +57,5 @@
 
 #instruction:hover {
     background-image: url("../images/INSTRUCTIONS.png");
+    cursor: pointer;
 }
