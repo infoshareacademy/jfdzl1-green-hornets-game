@@ -7,10 +7,24 @@
     <link rel="stylesheet" href="./css/guy.css">
     <link rel="stylesheet" href="./css/beer.css">
     <link rel="stylesheet" href="./css/motherinlaw.css">
+    <link rel="stylesheet" href="./css/start.css">
     <title>Game</title>
 </head>
 
 <body>
+    <div id="start_page">
+        <div class="wrapper">
+        </div>
+        <div class="container">
+            <a href="#">
+                <div id="play"></div>
+            </a>
+            <a href="#">
+                <div id="instruction">
+                </div>
+            </a>
+        </div>
+    </div>
     <div class="bg1">
         <div class="bg2">
             <div>Score: <span id="score">0</span></div>
@@ -30,7 +44,7 @@
             <div class="window_open" id="positionOfWindow_5">
                 <div id="window_5"></div>
             </div>
-            <div id="guy"><canvas id="canvas"></canvas></div>
+            <div id="guy" style="display: none"><canvas id="canvas"></canvas></div>
         </div>
     </div>
     <script src="./js/main.js"></script>

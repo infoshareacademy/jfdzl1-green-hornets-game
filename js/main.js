@@ -1,12 +1,30 @@
 var positionGuy;
-var guyHeight;
 var throwOutPoint;
 var beerWidth;
-var beerHeight = guyHeight = document.getElementById('guy').offsetHeight;
+var beerHeight;
+var guyHeight;
 var beerTag;
 var choosenWindow_A;
 var indexBeer = -1;
 var indexCrashBeer = 0;
+var startPage = true;
+
+if (startPage) {
+    var startDisplay = document.getElementById('start_page');
+    var guy = document.getElementById('guy');
+    var play = document.getElementById('play');
+    // var instruction = getElementById('instruction');
+    play.onclick = function() {
+        startDisplay.style.display = 'none';
+        guy.style.display = 'block';
+        startPage = false;
+        startGame();
+    }
+}
+
+function startGame() {
+    setInterval(initBeer, 4000);
+};
 
 function collision(positionToCollision) {
     var guyWidth = document.getElementById('guy').offsetWidth;
@@ -20,7 +38,7 @@ function collision(positionToCollision) {
         crashBeerDisplay();
         indexBeer--;
     }
-}
+};
 
 function crashBeerDisplay() {
     indexCrashBeer++;
@@ -29,10 +47,11 @@ function crashBeerDisplay() {
     crashBeer.id = 'crashBeer_' + indexCrashBeer;
     crashBeer.style.left = throwOutPoint - 32.5 + 'px';
     crashBeer.style.top = window.innerHeight - guyHeight + beerHeight + 'px';
+    console.log(window.innerHeight + ' - ' + guyHeight + ' + ' + beerHeight + ' + ' + 'px');
     document.body.appendChild(crashBeer);
     document.getElementById('crashBeer_' + indexCrashBeer).style.opacity = 1;
     smoothlyHide();
-}
+};
 
 function smoothlyHide() {
     var crashBeer = document.getElementById('crashBeer_' + indexCrashBeer);
@@ -53,7 +72,7 @@ function scoreAdd() {
     var score = parseInt(scoreTag.innerText);
     score += 1;
     scoreTag.innerText = score;
-}
+};
 
 function lifesRemove() {
     var lifesTag = document.getElementById('lifes');
@@ -65,7 +84,7 @@ function lifesRemove() {
             alert("GAME OVER");
         }
     }, 200)
-}
+};
 
 function initBeer(speed) {
     speed = speed || 20;
@@ -92,7 +111,7 @@ function initBeer(speed) {
     }, 1000);
 
     setTimeout(drawMotherInLaw, 500);
-}
+};
 
 function animateBeer(beerTag, speed, positionToCollision) {
     var position = beerTag.offsetTop;
@@ -105,9 +124,8 @@ function animateBeer(beerTag, speed, positionToCollision) {
             beerTag.style.top = (position += 5) + 'px';
         }
     }, speed);
-}
+};
 
-setInterval(initBeer, 4000);
 
 function drawMotherInLaw() {
     var M_canWidth = 650;
@@ -159,5 +177,4 @@ function drawMotherInLaw() {
     setInterval(function() {
         clearInterval(M_drw)
     }, 600);
-
 };

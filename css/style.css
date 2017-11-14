@@ -46,6 +46,7 @@ body {
     background-image: url("../images/open_window.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -96;
 }
 
 #positionOfWindow_1 {
@@ -75,4 +76,5 @@ body {
     transform: translate(-50%, -50%);
     width: 56%;
     height: 54%;
+    z-index: -95;
 }
