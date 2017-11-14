@@ -47,7 +47,6 @@ function crashBeerDisplay() {
     crashBeer.id = 'crashBeer_' + indexCrashBeer;
     crashBeer.style.left = throwOutPoint - 32.5 + 'px';
     crashBeer.style.top = window.innerHeight - guyHeight + beerHeight + 'px';
-    console.log(window.innerHeight + ' - ' + guyHeight + ' + ' + beerHeight + ' + ' + 'px');
     document.body.appendChild(crashBeer);
     document.getElementById('crashBeer_' + indexCrashBeer).style.opacity = 1;
     smoothlyHide();
@@ -87,6 +86,7 @@ function lifesRemove() {
 };
 
 function initBeer(speed) {
+    guyHeight = document.getElementById('guy').offsetHeight;
     speed = speed || 20;
 
     var choosenWindowNumber = Math.floor(Math.random() * 5) + 1; // from 1 to 5
