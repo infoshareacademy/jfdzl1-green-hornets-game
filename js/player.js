@@ -80,7 +80,7 @@
             switch (event.key) {
                 case 'ArrowLeft':
                     if (left > 20) {
-                        guyTag.style.left = left - 30 + 'px';
+                        guyTag.style.left = left - window.innerWidth / 62.7 + 'px';
                         moveLeft();
                         positionGuy = guyTag.offsetLeft;
                     } else {
@@ -90,7 +90,7 @@
                     break;
                 case 'ArrowRight':
                     if (left < window.innerWidth - 100) {
-                        guyTag.style.left = left + 30 + 'px';
+                        guyTag.style.left = left + window.innerWidth / 62.7 + 'px';
                         moveRight();
                         positionGuy = guyTag.offsetLeft;
                     } else {

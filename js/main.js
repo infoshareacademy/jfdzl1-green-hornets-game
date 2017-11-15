@@ -37,6 +37,24 @@ function startGame() {
     startGame = setInterval(initBeer, speed);
 };
 
+function gameOverPage() {
+    var stopDisplay = document.getElementById('stop_page');
+    stopDisplay.style.display = 'block';
+    var playAgain = document.getElementById('play_again');
+    var www = document.getElementById('www');
+    // var app = getElementById('app');
+    playAgain.onclick = function() {
+        window.location.reload();
+    }
+    www.onclick = function() {
+        window.open('http://green-hornets.jfdzl1.is-academy.pl/');
+    }
+    // app.onclick = function() {
+    //
+    // }
+
+}
+
 function collision(positionToCollision) {
     var guyWidth = document.getElementById('guy').offsetWidth;
     pTc = document.getElementsByClassName('beer')[0].offsetLeft;
@@ -93,9 +111,8 @@ function scoreAdd() {
 function lifesRemove() {
     if (lifes === 0) {
         clearInterval(startGame);
-        var stopDisplay = document.getElementById('stop_page');
         window.setTimeout(function() {
-            stopDisplay.style.display = 'block';
+            gameOverPage();
         }, 200)
     } else {
         var lifesTag = document.getElementById('lifes_' + lifes);
@@ -143,7 +160,7 @@ function animateBeer(beerTag, positionToCollision) {
             clearInterval(inter);
             collision(positionToCollision);
         } else {
-            beerTag.style.top = (position += 5) + 'px';
+            beerTag.style.top = ( position += window.innerHeight / 182 ) + 'px';
         }
     }, 20);
 };
