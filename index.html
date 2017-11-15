@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./css/beer.css">
     <link rel="stylesheet" href="./css/motherinlaw.css">
     <link rel="stylesheet" href="./css/start.css">
-        <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+    <link rel="stylesheet" href="./css/stop.css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
     <title>Game</title>
 </head>
 
@@ -17,28 +18,39 @@
         <div class="wrapper">
         </div>
         <div class="container">
-            <a href="#">
-                <div id="play"></div>
-            </a>
-            <a href="#">
-                <div id="instruction">
-                </div>
-            </a>
+            <div id="play"></div>
+            <div id="instruction">
+            </div>
+        </div>
+    </div>
+    <div id="stop_page">
+        <div class="GO_wrapper">
+        </div>
+        <div class="GO_container">
+            <div id="play_again"></div>
+            <div id="www"></div>
+            <div id="app"></div>
         </div>
     </div>
     <div class="bg1">
         <div class="bg2">
             <div class="topbar">
-            <div class="lifescore"> Score: <span id="score">0</span></div>
-            <div class="lives">
-                <div class="heart"><span id="lifes"></span></div>
-                <div class="heart"><span id="lifes"></span></div>
-                <div class="heart"><span id="lifes"></span></div>
-                <div class="heart"><span id="lifes"></span></div>
-                <div class="heart"><span id="lifes"></span></div>
-                Lifes
-            </div>
-                <div class="levels">Level: <span id="level">1</span></div>
+                <div class="score">
+                    Score:
+                    <span id="score">0</span>
+                </div>
+                <div class="lifes">
+                    <div class="title_in_topbar">Lifes</div>
+                    <div class="heart life" id="lifes_1"></div>
+                    <div class="heart life" id="lifes_2"></div>
+                    <div class="heart life" id="lifes_3"></div>
+                    <div class="heart life" id="lifes_4"></div>
+                    <div class="heart life" id="lifes_5"></div>
+                </div>
+                <div class="levels">
+                    Level:
+                    <span id="level">1</span>
+                </div>
             </div>
             <div class="window_open" id="positionOfWindow_1">
                 <div id="window_1"></div>
