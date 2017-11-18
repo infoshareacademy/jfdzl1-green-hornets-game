@@ -11,6 +11,7 @@ var startPage = true;
 var lifes;
 var startGame;
 var score = 0;
+var GO_score;
 var level = 1;
 var speed = 4000;
 var pTc;
@@ -46,6 +47,9 @@ function startGame() {
 };
 
 function gameOverPage() {
+    GO_score = score;
+    var GO_scoreTag = document.getElementById('GO_score');
+    GO_scoreTag.innerText = score;
     var stopDisplay = document.getElementById('stop_page');
     stopDisplay.style.display = 'block';
     var playAgain = document.getElementById('play_again');
