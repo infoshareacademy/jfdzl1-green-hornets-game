@@ -19,9 +19,17 @@ if (startPage) {
     var startDisplay = document.getElementById('start_page');
     var guy = document.getElementById('guy');
     var play = document.getElementById('play');
-    // var instruction = getElementById('instruction');
+    var instruction = document.getElementById('instruction');
+    var goBack = document.getElementById('goBack');
     lifes = 5;
-    play.onclick = function() {
+    instruction.onclick = function () {
+        document.getElementById('instructionDisplay').style.display = 'block';
+    }
+    goBack.onclick = function () {
+        document.getElementById('instructionDisplay').style.display = 'none';
+    }
+
+    play.onclick = function () {
         if (window.innerWidth >= 680) {
             startDisplay.style.display = 'none';
             guy.style.display = 'block';
@@ -43,10 +51,10 @@ function gameOverPage() {
     var playAgain = document.getElementById('play_again');
     var www = document.getElementById('www');
     // var app = getElementById('app');
-    playAgain.onclick = function() {
+    playAgain.onclick = function () {
         window.location.reload();
     }
-    www.onclick = function() {
+    www.onclick = function () {
         window.open('http://green-hornets.jfdzl1.is-academy.pl/');
     }
     // app.onclick = function() {
@@ -83,14 +91,15 @@ function crashBeerDisplay() {
 function smoothlyHide() {
     var crashBeer = document.getElementById('crashBeer_' + indexCrashBeer);
     var opacity = crashBeer.style.opacity * 100;
-    var intervalShow = setInterval(function() {
+    var intervalShow = setInterval(function () {
         if (opacity === 0) {
             clearInterval(intervalShow);
             crashBeer.outerHTML = '';
         } else {
             opacity -= 1;
             crashBeer.style.opacity = opacity / 100;
-        };
+        }
+        ;
     }, 15);
 };
 
@@ -111,7 +120,7 @@ function scoreAdd() {
 function lifesRemove() {
     if (lifes === 0) {
         clearInterval(startGame);
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             gameOverPage();
         }, 200)
     } else {
@@ -132,7 +141,7 @@ function initBeer() {
     choosenWindow_A.innerHTML = '<div id="motherinlaw"><canvas id="canvasM"></canvas></div>';
     drawMotherInLaw();
 
-    setTimeout(function() {
+    setTimeout(function () {
         indexBeer++;
         beerTag = document.createElement('div');
         beerTag.className = 'beer';
@@ -145,7 +154,7 @@ function initBeer() {
         var positionToCollision = throwOutPoint - beerWidth;
         animateBeer(beerTag, positionToCollision);
         beerTag.style.left = throwOutPoint + 'px';
-        setTimeout(function() {
+        setTimeout(function () {
             choosenWindow_A.innerHTML = '';
         }, 200);
     }, 600);
@@ -155,7 +164,7 @@ function initBeer() {
 
 function animateBeer(beerTag, positionToCollision) {
     var position = beerTag.offsetTop;
-    var inter = setInterval(function() {
+    var inter = setInterval(function () {
         if (position >= window.innerHeight - guyHeight || lifes === 0) {
             clearInterval(inter);
             collision(positionToCollision);
@@ -197,7 +206,6 @@ function drawMotherInLaw() {
     var M_ctx = canvasM.getContext('2d');
 
 
-
     function updateFrame() {
         M_ctx.clearRect(M_x, M_y, M_width, M_height);
         M_currentFrame = ++M_currentFrame % M_cols;
@@ -213,7 +221,7 @@ function drawMotherInLaw() {
     }
 
     var M_drw = setInterval(drawImage, 200);
-    setInterval(function() {
+    setInterval(function () {
         clearInterval(M_drw)
     }, 600);
 };
