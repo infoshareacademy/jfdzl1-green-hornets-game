@@ -20,3 +20,12 @@
     top: 90px;
     left: 30px;
 }
+
+.scoreDisplay {
+    position: absolute;
+    top: 53%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    width: 170px;
+}
