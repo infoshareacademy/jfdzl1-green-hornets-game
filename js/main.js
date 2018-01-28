@@ -54,17 +54,16 @@ function gameOverPage() {
     stopDisplay.style.display = 'block';
     var playAgain = document.getElementById('play_again');
     var www = document.getElementById('www');
-    // var app = getElementById('app');
+    var app = document.getElementById('app');
     playAgain.onclick = function () {
         window.location.reload();
-    }
+    };
     www.onclick = function () {
         window.open('http://green-hornets.jfdzl1.is-academy.pl/');
-    }
-    // app.onclick = function() {
-    //
-    // }
-
+    };
+    app.onclick = function () {
+        window.open('http://app.green-hornets.jfdzl1.is-academy.pl/');
+    };
 }
 
 function collision(positionToCollision) {
