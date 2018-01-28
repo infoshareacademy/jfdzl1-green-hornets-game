@@ -11,6 +11,8 @@ GH Game
 Built from develop: [click here](http://green-hornets.jfdzl1.is-academy.pl/game)
 See also our project [page](http://green-hornets.jfdzl1.is-academy.pl) and [repo](https://github.com/infoshareacademy/jfdzl1-green-hornets-www)
 
+JFDZL1 projects: https://github.com/infoshareacademy/jfdzl1-projects
+
 ## Other peojects
 * Project website: [demo](http://green-hornets.jfdzl1.is-academy.pl), [repo](https://github.com/infoshareacademy/jfdzl1-green-hornets-www)
 * Application: [demo](http://app.green-hornets.jfdzl1.is-academy.pl), [repo](https://github.com/infoshareacademy/jfdzl1-green-hornets-app)
